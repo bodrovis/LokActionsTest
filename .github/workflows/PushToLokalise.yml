@@ -20,4 +20,4 @@ jobs:
           base_lang: en
           translations_path: locales
           file_format: json
-          push_additional_params: "--convert-placeholders"
+          additional_params: "--convert-placeholders --hidden_from_contributors true"
