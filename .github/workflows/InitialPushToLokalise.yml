@@ -15,9 +15,9 @@ jobs:
       - name: Push to Lokalise
         uses: bodrovis/Lok-Actions/actions/initial_push@master
         with:
-          lokalise_api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          lokalise_project_id: 5868381966b39e5053ff15.63486389
-          lokalise_source_lang: en
-          lokalise_translations_path: locales
-          lokalise_file_format: json
-          lokalise_push_additional_params: "--convert-placeholders"
+          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: 5868381966b39e5053ff15.63486389
+          base_lang: en
+          translations_path: locales
+          file_format: json
+          push_additional_params: "--convert-placeholders"
