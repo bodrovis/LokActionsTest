@@ -1,5 +1,4 @@
 name: Demo pull with tags
-run-name: Demo pull with tags [${{ github.ref_name }}]
 
 on:
   workflow_dispatch:
@@ -27,4 +26,3 @@ jobs:
       - name: Display changed files
         if: steps.lokalise-pull.outputs.changed_files != ''
         run: echo "Changed files: ${{ steps.lokalise-pull.outputs.changed_files }}"
-        
