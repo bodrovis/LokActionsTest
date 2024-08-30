@@ -24,6 +24,6 @@ jobs:
           additional_params: "--indentation 2sp --placeholder-format icu"
 
       - name: Display changed files
-        if: steps.lokalise-pull.outputs.changed_files != ''
+        if: steps.lokalise-pull.outputs.pulled_files != ''
         run: |
-          echo "Changed files: ${{ steps.lokalise-pull.outputs.changed_files }}"
+          echo "Changed files: ${{ steps.lokalise-pull.outputs.pulled_files }}"
