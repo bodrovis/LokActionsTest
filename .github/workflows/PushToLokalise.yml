@@ -1,0 +1,23 @@
+name: Demo push with tags
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Lokalise
+        uses: bodrovis/Lok-Actions/actions/push@master
+        with:
+          lokalise_api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          lokalise_project_id: 5868381966b39e5053ff15.63486389
+          lokalise_source_lang: en
+          lokalise_translations_path: locales
+          lokalise_file_format: json
+          lokalise_push_additional_params: "--convert-placeholders"
