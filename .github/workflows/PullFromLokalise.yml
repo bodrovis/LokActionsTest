@@ -1,4 +1,4 @@
-name: Demo push with tags
+name: Demo pull with tags
 on:
   workflow_dispatch:
 
@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push to Lokalise
+      - name: Pull from Lokalise
         uses: bodrovis/Lok-Actions/actions/pull@master
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
