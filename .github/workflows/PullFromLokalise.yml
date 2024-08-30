@@ -1,4 +1,6 @@
 name: Demo pull with tags
+run-name: Demo pull with tags [${{ github.ref_name }}]
+
 on:
   workflow_dispatch:
 
