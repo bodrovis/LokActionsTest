@@ -21,4 +21,3 @@ jobs:
           translations_path: locales
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
-          cleanup_mode: true
