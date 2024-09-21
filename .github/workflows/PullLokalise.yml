@@ -23,6 +23,7 @@ jobs:
           base_lang: en
           file_format: json
           additional_params: "--indentation 2sp --placeholder-format icu"
+          always_pull_base: true
 
       - name: Display changed files
         if: steps.lokalise-pull.outputs.pulled_files != ''
