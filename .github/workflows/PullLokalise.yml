@@ -15,7 +15,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-push-action@v0.1.0
+        uses: lokalise/lokalise-pull-action@v0.1.0
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -24,8 +24,3 @@ jobs:
           file_format: json
           additional_params: "--indentation 2sp --placeholder-format icu"
           always_pull_base: true
-
-      - name: Display changed files
-        if: steps.lokalise-pull.outputs.pulled_files != ''
-        run: |
-          echo "Changed files: ${{ steps.lokalise-pull.outputs.pulled_files }}"
