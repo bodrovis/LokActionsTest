@@ -15,11 +15,13 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@v0.1.0
+        uses: bodrovis/lokalise-pull-action@locales_folders_list
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
-          translations_path: locales
+          translations_path: |
+            locales
+            i18n
           base_lang: en
           file_format: json
           additional_params: "--indentation 2sp --placeholder-format icu"
