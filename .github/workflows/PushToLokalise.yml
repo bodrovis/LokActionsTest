@@ -19,7 +19,7 @@ jobs:
           project_id: 5868381966b39e5053ff15.63486389
           base_lang: en
           translations_path: |
-            - locales
-            - i18n
+            locales
+            i18n
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
