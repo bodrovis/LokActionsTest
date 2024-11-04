@@ -26,4 +26,4 @@ jobs:
           file_format: json
           additional_params: "--indentation 2sp --placeholder-format icu"
           always_pull_base: true
-          flat_naming: true
+          flat_naming: false
