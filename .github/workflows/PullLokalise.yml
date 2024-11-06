@@ -15,7 +15,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: bodrovis/lokalise-pull-action@flat
+        uses: bodrovis/lokalise-pull-action@go
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
