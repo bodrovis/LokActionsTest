@@ -23,4 +23,4 @@ jobs:
             i18n
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
-          flat_naming: true
+          flat_naming: false
