@@ -27,3 +27,4 @@ jobs:
           additional_params: "--indentation 2sp --placeholder-format icu"
           always_pull_base: true
           flat_naming: true
+          skip_include_tags: true
