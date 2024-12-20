@@ -17,25 +17,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Pull from Lokalise
-        id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@custom_labels
-        with:
-          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          project_id: 5868381966b39e5053ff15.63486389
-          translations_path: |
-            locales
-            i18n
-          base_lang: en
-          file_format: json
-          additional_params: "--indentation 2sp --placeholder-format icu"
-          always_pull_base: true
-          flat_naming: true
-          skip_include_tags: true
+      # - name: Pull from Lokalise
+      #   id: lokalise-pull
+      #   uses: lokalise/lokalise-pull-action@custom_labels
+      #   with:
+      #     api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+      #     project_id: 5868381966b39e5053ff15.63486389
+      #     translations_path: |
+      #       locales
+      #       i18n
+      #     base_lang: en
+      #     file_format: json
+      #     additional_params: "--indentation 2sp --placeholder-format icu"
+      #     always_pull_base: true
+      #     flat_naming: true
+      #     skip_include_tags: true
 
-      - name: Debug Created Branch
-        run: |
-          echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
+      # - name: Debug Created Branch
+      #   run: |
+      #     echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
 
       - name: Trigger Automerge Workflow
         if: ${{ steps.lokalise-pull.outputs.created_branch != '' }}
@@ -47,10 +47,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: "automerge.yml",
-              ref: "${{ steps.lokalise-pull.outputs.created_branch }}",
-              inputs: {
-                created_branch: "${{ steps.lokalise-pull.outputs.created_branch }}"
-              }
+              ref: master,
             });
   
       # - name: Automerge PRs
