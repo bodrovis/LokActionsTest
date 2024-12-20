@@ -3,6 +3,10 @@ name: Demo pull with tags
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,12 +19,40 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@v0.1.0
+        uses: lokalise/lokalise-pull-action@custom_labels
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
-          translations_path: locales
+          translations_path: |
+            locales
+            i18n
           base_lang: en
           file_format: json
           additional_params: "--indentation 2sp --placeholder-format icu"
           always_pull_base: true
+          flat_naming: true
+          skip_include_tags: true
+
+      - name: Wait for PR creation
+        run: sleep 10
+  
+      # - name: Inspect Pull Requests
+      #   run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: List All PRs with Merge Status
+      #   run: gh pr list --state open --json number,mergeable,mergeStateStatus,headRefName,baseRefName,labels,title
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+      # - name: Automerge PRs
+      #   uses: pascalgn/automerge-action@v0.16.4
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     MERGE_LABELS: "automerge"
+      #     MERGE_METHOD: "squash"
+      #     MERGE_RETRIES: "6"
+      #     MERGE_RETRY_SLEEP: "10000"
+      #     MERGE_DELETE_BRANCH: "true"
+      #     LOG: "TRACE"
