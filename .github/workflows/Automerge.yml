@@ -1,6 +1,7 @@
 name: Automerge PRs
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       - Demo pull with tags
@@ -16,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Wait for PR readiness
         run: sleep 10
 
