@@ -34,7 +34,8 @@ jobs:
           skip_include_tags: true
 
       - name: Debug Created Branch
-        run: echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
+        run: |
+          echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
 
       # - name: Wait for PR creation
       #   run: sleep 10
