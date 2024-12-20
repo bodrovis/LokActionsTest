@@ -33,8 +33,10 @@ jobs:
           flat_naming: true
           skip_include_tags: true
 
-      - name: Wait for PR creation
-        run: sleep 10
+      - name: Debug Created Branch
+        run: echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
+      # - name: Wait for PR creation
+      #   run: sleep 10
   
       # - name: Inspect Pull Requests
       #   run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
