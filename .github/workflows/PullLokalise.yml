@@ -40,7 +40,12 @@ jobs:
         run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
+      - name: List All PRs with Merge Status
+        run: gh pr list --state open --json number,mergeable,mergeStateStatus,headRefName,baseRefName,labels,title
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
       - name: Automerge PRs
         uses: pascalgn/automerge-action@v0.16.4
         env:
