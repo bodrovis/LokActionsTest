@@ -36,23 +36,23 @@ jobs:
       - name: Wait for PR creation
         run: sleep 10
   
-      - name: Inspect Pull Requests
-        run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Inspect Pull Requests
+      #   run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: List All PRs with Merge Status
-        run: gh pr list --state open --json number,mergeable,mergeStateStatus,headRefName,baseRefName,labels,title
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: List All PRs with Merge Status
+      #   run: gh pr list --state open --json number,mergeable,mergeStateStatus,headRefName,baseRefName,labels,title
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
-      - name: Automerge PRs
-        uses: pascalgn/automerge-action@v0.16.4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "automerge"
-          MERGE_METHOD: "squash"
-          MERGE_RETRIES: "6"
-          MERGE_RETRY_SLEEP: "10000"
-          MERGE_DELETE_BRANCH: "true"
-          LOG: "TRACE"
+      # - name: Automerge PRs
+      #   uses: pascalgn/automerge-action@v0.16.4
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     MERGE_LABELS: "automerge"
+      #     MERGE_METHOD: "squash"
+      #     MERGE_RETRIES: "6"
+      #     MERGE_RETRY_SLEEP: "10000"
+      #     MERGE_DELETE_BRANCH: "true"
+      #     LOG: "TRACE"
