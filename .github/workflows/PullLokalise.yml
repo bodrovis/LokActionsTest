@@ -36,8 +36,19 @@ jobs:
       - name: Debug Created Branch
         run: |
           echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
-          echo "Branch created: ${{ steps.lokalise-pull.outputs.branch_name }}"
 
+      - name: Automerge PRs
+        if: ${{ steps.lokalise-pull.outputs.created_branch != '' }}
+        uses: pascalgn/automerge-action@v0.16.4
+        with:
+          ref: ${{ steps.lokalise-pull.outputs.created_branch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "automerge"
+          MERGE_METHOD: "squash"
+          MERGE_RETRIES: 6
+          MERGE_RETRY_SLEEP: 10000
+          MERGE_DELETE_BRANCH: "true"
       # - name: Wait for PR creation
       #   run: sleep 10
   
