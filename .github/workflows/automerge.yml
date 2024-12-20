@@ -2,10 +2,6 @@ name: Automerge PRs
 
 on:
   workflow_dispatch:
-    inputs:
-      created_branch:
-        description: "The branch created by the Lokalise pull workflow"
-        required: true
 
 permissions:
   contents: write
@@ -19,16 +15,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Debug Inputs
-        run: |
-          echo "Created Branch: ${{ github.event.inputs.created_branch }}"
-
-      # - name: Automerge PRs
-      #   uses: pascalgn/automerge-action@v0.16.4
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     MERGE_LABELS: "automerge"
-      #     MERGE_METHOD: "squash"
-      #     MERGE_RETRIES: 6
-      #     MERGE_RETRY_SLEEP: 10000
-      #     MERGE_DELETE_BRANCH: "true"
+      - name: Automerge PRs
+        uses: pascalgn/automerge-action@v0.16.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "automerge"
+          MERGE_METHOD: "squash"
+          MERGE_RETRIES: 6
+          MERGE_RETRY_SLEEP: 10000
+          MERGE_DELETE_BRANCH: "true"
