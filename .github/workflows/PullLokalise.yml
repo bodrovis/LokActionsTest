@@ -33,6 +33,14 @@ jobs:
           flat_naming: true
           skip_include_tags: true
 
+      - name: Wait for PR creation
+        run: sleep 10
+  
+      - name: Inspect Pull Requests
+        run: gh pr list --state open --json number,headRefName,labels,baseRefName,title
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Automerge PRs
         uses: pascalgn/automerge-action@v0.16.4
         env:
