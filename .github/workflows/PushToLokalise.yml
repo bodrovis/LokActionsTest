@@ -25,6 +25,8 @@ jobs:
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
           flat_naming: false
+          rambo_mode: true
+          skip_tagging: true
 
       - name: Debug Outputs
         run: |
