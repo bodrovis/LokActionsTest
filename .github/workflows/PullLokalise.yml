@@ -39,18 +39,18 @@ jobs:
           echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
           echo "PR created: ${{ steps.lokalise-pull.outputs.pr_created }}"
       
-      - name: Trigger Automerge Workflow
-        if: ${{ steps.lokalise-pull.outputs.created_branch != '' }}
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.PAT_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: "automerge.yml",
-              ref: "${{ steps.lokalise-pull.outputs.created_branch }}",
-            });
+      # - name: Trigger Automerge Workflow
+      #   if: ${{ steps.lokalise-pull.outputs.created_branch != '' }}
+      #   uses: actions/github-script@v7
+      #   with:
+      #     github-token: ${{ secrets.PAT_TOKEN }}
+      #     script: |
+      #       await github.rest.actions.createWorkflowDispatch({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         workflow_id: "automerge.yml",
+      #         ref: "${{ steps.lokalise-pull.outputs.created_branch }}",
+      #       });
   
       # - name: Automerge PRs
       #   if: ${{ steps.lokalise-pull.outputs.created_branch != '' }}
