@@ -13,7 +13,8 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-pull-action@main
+        uses: lokalise/lokalise-pull-action@rambo_mode
+        id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -24,3 +25,8 @@ jobs:
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
           flat_naming: false
+
+      - name: Debug Outputs
+        run: |
+          echo "Initial Run: ${{ steps.lokalise-push.outputs.first_run }}"
+          echo "Files Uploaded: ${{ steps.lokalise-push.outputs.files_uploaded }}"
