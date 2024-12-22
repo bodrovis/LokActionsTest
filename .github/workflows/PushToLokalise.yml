@@ -28,5 +28,5 @@ jobs:
 
       - name: Debug Outputs
         run: |
-          echo "Initial Run: ${{ steps.lokalise-push.outputs.first_run }}"
+          echo "Initial Run: ${{ steps.lokalise-push.outputs.initial_run }}"
           echo "Files Uploaded: ${{ steps.lokalise-push.outputs.files_uploaded }}"
