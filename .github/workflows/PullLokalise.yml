@@ -38,6 +38,8 @@ jobs:
         run: |
           echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
           echo "PR created: ${{ steps.lokalise-pull.outputs.pr_created }}"
+          echo "PR id: ${{ steps.lokalise-pull.outputs.pr_id }}"
+          echo "PR number: ${{ steps.lokalise-pull.outputs.pr_number }}"
       
       # - name: Trigger Automerge Workflow
       #   if: steps.lokalise-pull.outputs.created_branch != '' && steps.lokalise-pull.outputs.pr_created == 'true'
