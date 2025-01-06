@@ -25,10 +25,10 @@ jobs:
           file_format: json
           additional_params: "--convert-placeholders --hidden-from-contributors"
           flat_naming: true
-          rambo_mode: true
+          rambo_mode: false
           skip_tagging: true
-          # name_pattern: "en/**/custom_*.json"
-          name_pattern: "custom_*.json"
+          name_pattern: "en/**/custom_*.json"
+          # name_pattern: "custom_*.json"
 
       - name: Debug Outputs
         run: |
