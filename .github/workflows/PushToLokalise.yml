@@ -27,8 +27,8 @@ jobs:
           flat_naming: true
           rambo_mode: true
           skip_tagging: true
-          name_pattern: "en/**/custom_*.json"
-          # name_pattern: "custom_*.json"
+          # name_pattern: "en/**/custom_*.json"
+          name_pattern: "custom_file.json"
 
       - name: Debug Outputs
         run: |
