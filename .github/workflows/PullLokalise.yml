@@ -19,7 +19,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@custom_labels
+        uses: lokalise/lokalise-pull-action@main
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -27,9 +27,10 @@ jobs:
             locales
             i18n
           base_lang: en
-          file_format: json
+          file_format: structured_json
+          file_ext: json
           additional_params: "--indentation 2sp --placeholder-format icu"
-          always_pull_base: true
+          always_pull_base: false
           flat_naming: true
           skip_include_tags: true
           pr_labels: 'automerge,sample'
