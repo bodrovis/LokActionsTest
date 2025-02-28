@@ -26,10 +26,11 @@ jobs:
           translations_path: |
             locales
             i18n
+            en
           base_lang: en
           file_format: json_structured
           file_ext: json
-          additional_params: "--indentation 2sp --placeholder-format icu"
+          additional_params: "--indentation 2sp --placeholder-format icu --original_filenames=false"
           always_pull_base: false
           flat_naming: true
           skip_include_tags: true
