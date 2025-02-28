@@ -1,3 +1,5 @@
 {
-  "custom_file": "key here 10"
+  "custom_file": {
+    "translation": ""
+  }
 }
