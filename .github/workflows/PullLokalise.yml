@@ -35,6 +35,7 @@ jobs:
           # skip_include_tags: true
           pr_labels: 'automerge,sample'
           # skip_original_filenames: true
+          async_mode: true
  
       - name: Debug Created Branch
         run: |
