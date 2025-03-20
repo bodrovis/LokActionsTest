@@ -30,13 +30,13 @@ jobs:
           base_lang: en
           file_format: json_structured
           file_ext: json
-          additional_params: "--indentation 2sp --placeholder-format icu --original-filenames=false"
+          additional_params: "--indentation 2sp --placeholder-format icu"
           always_pull_base: false
           flat_naming: true
           skip_include_tags: true
           pr_labels: 'automerge,sample'
-          skip_original_filenames: true
-
+          # skip_original_filenames: true
+ 
       - name: Debug Created Branch
         run: |
           echo "Branch created: ${{ steps.lokalise-pull.outputs.created_branch }}"
