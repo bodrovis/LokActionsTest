@@ -26,7 +26,6 @@ jobs:
           translations_path: |
             locales
             i18n
-            en
           base_lang: en
           file_format: json_structured
           file_ext: json
