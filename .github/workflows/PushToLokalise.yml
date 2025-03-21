@@ -24,7 +24,9 @@ jobs:
             i18n
           file_format: json_structured
           file_ext: json
-          additional_params: "--convert-placeholders --hidden-from-contributors"
+          additional_params: |
+            --convert-placeholders
+            --hidden-from-contributors
           flat_naming: true
           rambo_mode: false
           skip_tagging: true
