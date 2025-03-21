@@ -1,4 +1,8 @@
 {
-  "alone": "clé automatique!",
-  "hub": "unhub"
+    "hub": {
+        "translation": "unhub"
+    },
+    "alone": {
+        "translation": "key auto 25"
+    }
 }
