@@ -36,13 +36,13 @@ jobs:
             --export-empty-as=skip
             --export-sort=a_z
             --replace-breaks=false
-            --language-mapping='[{"original_language_iso":"en_US","custom_language_iso":"en-US"}]'
+            --language-mapping=[{"original_language_iso":"en_US","custom_language_iso":"en-US"}]
           always_pull_base: false
           flat_naming: true
           # skip_include_tags: true
           pr_labels: 'automerge,sample'
           # skip_original_filenames: true
-          async_mode: true
+          # async_mode: true
  
       - name: Debug Created Branch
         run: |
