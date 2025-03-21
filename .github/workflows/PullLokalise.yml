@@ -29,7 +29,7 @@ jobs:
           base_lang: en
           file_format: json_structured
           file_ext: json
-          additional-params: >
+          additional_params: >
             --directory-prefix %LANG_ISO%
             --indentation 4sp
             --json-unescaped-slashes=true
