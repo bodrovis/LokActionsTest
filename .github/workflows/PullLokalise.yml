@@ -44,6 +44,7 @@ jobs:
           # skip_original_filenames: true
           # async_mode: true
           override_branch_name: 'custom_branch'
+          force_push: true
  
       - name: Debug Created Branch
         run: |
