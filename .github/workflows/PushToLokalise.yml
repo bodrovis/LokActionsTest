@@ -30,7 +30,7 @@ jobs:
           flat_naming: true
           rambo_mode: false
           skip_tagging: true
-          use_tag_tracking: true
+          use_tag_tracking: false
           # name_pattern: "en/**/custom_*.json"
           # name_pattern: "custom_file.json"
 
