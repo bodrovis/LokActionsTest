@@ -24,7 +24,7 @@ jobs:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
           translations_path: messages
-          skip_original_filenames: true
+          # skip_original_filenames: true
           skip_include_tags: true
           flat_naming: true
           file_format: json
