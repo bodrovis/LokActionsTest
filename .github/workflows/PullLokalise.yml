@@ -28,6 +28,9 @@ jobs:
           skip_include_tags: true
           flat_naming: true
           file_format: json
+          pr_reviewers: bodrovis
+          pr_title: Demo
+          pr_body: Sample
           additional_params: |
             --indentation=2sp
             --export-sort=a_z
