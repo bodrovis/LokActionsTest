@@ -1,6 +1,12 @@
 import os
 import json
 
+# Break me:
+import sys
+print("This is a broken post-processing script.")
+print("Simulating failure...")
+sys.exit(1)
+
 translations_path = os.getenv("TRANSLATIONS_PATH", "locales")
 target_file = os.path.join(translations_path, "fr.json")
 
