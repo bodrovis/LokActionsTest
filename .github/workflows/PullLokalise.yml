@@ -17,25 +17,26 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check Python
+        run: |
+          which python
+          python --version
+          
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@add_pr_reviewers
+        uses: lokalise/lokalise-pull-action@postprocess
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
           translations_path: messages
-          # skip_original_filenames: true
-          skip_include_tags: true
           flat_naming: true
           file_format: json
-          pr_reviewers: bodrovis
-          pr_title: Demo
-          pr_body: Sample
-          additional_params: |
-            --indentation=2sp
-            --export-sort=a_z
-            --replace-breaks=false
-            --language-mapping=[{"original_language_iso":"ar_AR","custom_language_iso":"ar-AR"},{"original_language_iso":"bn_BD","custom_language_iso":"bn-BD"},{"original_language_iso":"de_DE","custom_language_iso":"de-DE"},{"original_language_iso":"en_CA","custom_language_iso":"en-CA"},{"original_language_iso":"en_GB","custom_language_iso":"en-GB"},{"original_language_iso":"en_US","custom_language_iso":"en-US"},{"original_language_iso":"en","custom_language_iso":"en"},{"original_language_iso":"es_ES","custom_language_iso":"es-ES"},{"original_language_iso":"fa_IR","custom_language_iso":"fa-IR"},{"original_language_iso":"fr_CA","custom_language_iso":"fr-CA"},{"original_language_iso":"fr_FR","custom_language_iso":"fr-FR"},{"original_language_iso":"hi_IN","custom_language_iso":"hi-IN"},{"original_language_iso":"id_ID","custom_language_iso":"id-ID"},{"original_language_iso":"ms_MY","custom_language_iso":"ms-MY"},{"original_language_iso":"nl_NL","custom_language_iso":"nl-NL"},{"original_language_iso":"tr_TR","custom_language_iso":"tr-TR"},{"original_language_iso":"ur_PK","custom_language_iso":"ur-PK"}]
+          post_process_command: "python scripts/replace_test.py"
+          # additional_params: |
+          #   --indentation=2sp
+          #   --export-sort=a_z
+          #   --replace-breaks=false
+          #   --language-mapping=[{"original_language_iso":"ar_AR","custom_language_iso":"ar-AR"},{"original_language_iso":"bn_BD","custom_language_iso":"bn-BD"},{"original_language_iso":"de_DE","custom_language_iso":"de-DE"},{"original_language_iso":"en_CA","custom_language_iso":"en-CA"},{"original_language_iso":"en_GB","custom_language_iso":"en-GB"},{"original_language_iso":"en_US","custom_language_iso":"en-US"},{"original_language_iso":"en","custom_language_iso":"en"},{"original_language_iso":"es_ES","custom_language_iso":"es-ES"},{"original_language_iso":"fa_IR","custom_language_iso":"fa-IR"},{"original_language_iso":"fr_CA","custom_language_iso":"fr-CA"},{"original_language_iso":"fr_FR","custom_language_iso":"fr-FR"},{"original_language_iso":"hi_IN","custom_language_iso":"hi-IN"},{"original_language_iso":"id_ID","custom_language_iso":"id-ID"},{"original_language_iso":"ms_MY","custom_language_iso":"ms-MY"},{"original_language_iso":"nl_NL","custom_language_iso":"nl-NL"},{"original_language_iso":"tr_TR","custom_language_iso":"tr-TR"},{"original_language_iso":"ur_PK","custom_language_iso":"ur-PK"}]
 
 
           # base_lang: en
