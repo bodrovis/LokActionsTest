@@ -22,8 +22,8 @@ jobs:
           translations_path: |
             locales
             i18n
-          file_format: json_structured1
-          file_ext: json
+          file_format: test
+          file_ext: test
           additional_params: |
             --convert-placeholders
             --hidden-from-contributors
