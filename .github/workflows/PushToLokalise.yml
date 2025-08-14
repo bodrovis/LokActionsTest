@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@fix_tagging_issues
+        uses: lokalise/lokalise-push-action@solidify_logic_and_edge_cases
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -32,6 +32,8 @@ jobs:
           skip_tagging: true
           use_tag_tracking: true
           name_pattern: "en/**/custom_*.json"
+          upload_timeout: 1
+          upload_poll_timeout: 1
           # name_pattern: "custom_file.json"
 
       - name: Debug Outputs
