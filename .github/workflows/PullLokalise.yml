@@ -24,7 +24,7 @@ jobs:
           
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@solidify_logic_and_edge_cases
+        uses: lokalise/lokalise-pull-action@lokex
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
