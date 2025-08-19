@@ -33,6 +33,7 @@ jobs:
           file_format: json
           pr_draft: true
           pr_assignees: bodrovis
+          async_mode: true
           # post_process_command: "python scripts/replace_test.py"
           # post_process_strict: true
           # additional_params: |
