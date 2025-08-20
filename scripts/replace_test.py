@@ -8,7 +8,7 @@ import json
 # sys.exit(1)
 
 translations_path = os.getenv("TRANSLATIONS_PATH", "locales")
-target_file = os.path.join(translations_path, "fr.json")
+target_file = os.path.join(translations_path, "fr-FR.json")
 
 print(f"Reading file: {target_file}")
 
