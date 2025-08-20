@@ -34,9 +34,8 @@ jobs:
           # pr_draft: true
           # pr_assignees: bodrovis
           async_mode: true
-          global_timeout: 1
-          # post_process_command: "python scripts/replace_test.py"
-          # post_process_strict: true
+          post_process_command: "python scripts/replace_test.py"
+          post_process_strict: true
           additional_params: >
             {
               "indentation": "2sp",
