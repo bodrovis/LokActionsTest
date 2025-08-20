@@ -33,7 +33,7 @@ jobs:
           file_format: json
           # pr_draft: true
           # pr_assignees: bodrovis
-          async_mode: true
+          # async_mode: true
           skip_include_tags: true
           additional_params: >
             {
