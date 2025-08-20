@@ -31,16 +31,21 @@ jobs:
           translations_path: messages
           flat_naming: true
           file_format: json
-          pr_draft: true
-          pr_assignees: bodrovis
+          # pr_draft: true
+          # pr_assignees: bodrovis
           async_mode: true
           # post_process_command: "python scripts/replace_test.py"
           # post_process_strict: true
-          # additional_params: |
-          #   --indentation=2sp
-          #   --export-sort=a_z
-          #   --replace-breaks=false
-          #   --language-mapping=[{"original_language_iso":"ar_AR","custom_language_iso":"ar-AR"},{"original_language_iso":"bn_BD","custom_language_iso":"bn-BD"},{"original_language_iso":"de_DE","custom_language_iso":"de-DE"},{"original_language_iso":"en_CA","custom_language_iso":"en-CA"},{"original_language_iso":"en_GB","custom_language_iso":"en-GB"},{"original_language_iso":"en_US","custom_language_iso":"en-US"},{"original_language_iso":"en","custom_language_iso":"en"},{"original_language_iso":"es_ES","custom_language_iso":"es-ES"},{"original_language_iso":"fa_IR","custom_language_iso":"fa-IR"},{"original_language_iso":"fr_CA","custom_language_iso":"fr-CA"},{"original_language_iso":"fr_FR","custom_language_iso":"fr-FR"},{"original_language_iso":"hi_IN","custom_language_iso":"hi-IN"},{"original_language_iso":"id_ID","custom_language_iso":"id-ID"},{"original_language_iso":"ms_MY","custom_language_iso":"ms-MY"},{"original_language_iso":"nl_NL","custom_language_iso":"nl-NL"},{"original_language_iso":"tr_TR","custom_language_iso":"tr-TR"},{"original_language_iso":"ur_PK","custom_language_iso":"ur-PK"}]
+          additional_params: >
+            {
+              "indentation": "2sp",
+              "export_empty_as": "skip",
+              "export_sort": "a_z",
+              "replace_breaks": false,
+              "language_mapping": [
+                {"original_language_iso": "fr", "custom_language_iso": "fr-FR"}
+              ]
+            }
 
 
           # base_lang: en
