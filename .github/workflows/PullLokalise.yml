@@ -34,18 +34,23 @@ jobs:
           # pr_draft: true
           # pr_assignees: bodrovis
           async_mode: true
-          post_process_command: "python scripts/replace_test.py"
-          post_process_strict: true
+          skip_include_tags: true
           additional_params: >
             {
-              "indentation": "2sp",
-              "export_empty_as": "skip",
-              "export_sort": "a_z",
-              "replace_breaks": false,
-              "language_mapping": [
-                {"original_language_iso": "fr", "custom_language_iso": "fr-FR"}
-              ]
+              "include_tags": ["release-2025-08-19"]
             }
+          # post_process_command: "python scripts/replace_test.py"
+          # post_process_strict: true
+          # additional_params: >
+          #   {
+          #     "indentation": "2sp",
+          #     "export_empty_as": "skip",
+          #     "export_sort": "a_z",
+          #     "replace_breaks": false,
+          #     "language_mapping": [
+          #       {"original_language_iso": "fr", "custom_language_iso": "fr-FR"}
+          #     ]
+          #   }
 
 
           # base_lang: en
