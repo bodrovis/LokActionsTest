@@ -27,7 +27,7 @@ jobs:
           additional_params: >
             {
               "convert_placeholders": true,
-              "hidden_from_contributors: true
+              "hidden_from_contributors": true
             }
           # flat_naming: true
           rambo_mode: false
