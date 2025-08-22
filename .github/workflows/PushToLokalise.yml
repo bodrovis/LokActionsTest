@@ -31,9 +31,10 @@ jobs:
             }
           # flat_naming: true
           rambo_mode: false
-          skip_tagging: true
+          skip_tagging: false
           use_tag_tracking: true
           name_pattern: "en/**/custom_*.json"
+          http_timeout: 1
           # name_pattern: "custom_file.json"
 
       - name: Debug Outputs
