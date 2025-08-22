@@ -35,7 +35,7 @@ jobs:
           # pr_assignees: bodrovis
           # async_mode: true
           skip_include_tags: true
-          additional_params: ""
+          # additional_params: ""
           # additional_params: >
           #   {
           #     "include_tags": ["release-2025-08-19"]
