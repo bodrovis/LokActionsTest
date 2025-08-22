@@ -34,7 +34,7 @@ jobs:
           skip_tagging: false
           use_tag_tracking: true
           name_pattern: "en/**/custom_*.json"
-          http_timeout: 1
+          upload_timeout: 1
           # name_pattern: "custom_file.json"
 
       - name: Debug Outputs
