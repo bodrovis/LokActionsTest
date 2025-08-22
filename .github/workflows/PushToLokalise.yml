@@ -24,9 +24,11 @@ jobs:
             i18n
           file_format: test
           file_ext: test
-          additional_params: |
-            --convert-placeholders
-            --hidden-from-contributors
+          additional_params: >
+            {
+              "convert_placeholders": true,
+              "hidden_from_contributors: true
+            }
           # flat_naming: true
           rambo_mode: false
           skip_tagging: true
