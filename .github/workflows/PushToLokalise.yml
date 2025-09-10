@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@lokex
+        uses: lokalise/lokalise-push-action@v4.0.0-beta.1
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -34,7 +34,7 @@ jobs:
           skip_tagging: false
           use_tag_tracking: true
           name_pattern: "en/**/custom_*.json"
-          upload_timeout: 1
+          # upload_timeout: 1
           # name_pattern: "custom_file.json"
 
       - name: Debug Outputs
