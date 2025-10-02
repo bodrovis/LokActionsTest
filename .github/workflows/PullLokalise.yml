@@ -2,7 +2,10 @@ name: Demo pull with tags
 
 on:
   workflow_dispatch:
-
+  pull_request:
+    branches: [main]
+    # types: [opened, synchronize, reopened, ready_for_review]
+    
 permissions:
   contents: write
   pull-requests: write
@@ -17,14 +20,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check Python
-        run: |
-          which python
-          python --version
+      # - name: Check Python
+      #   run: |
+      #     which python
+      #     python --version
           
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@additional_file_ext
+        uses: lokalise/lokalise-pull-action@v4.1.0
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
