@@ -3,7 +3,7 @@ name: Demo pull with tags
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
+    branches: [master]
     # types: [opened, synchronize, reopened, ready_for_review]
     
 permissions:
