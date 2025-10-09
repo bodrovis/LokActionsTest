@@ -1,4 +1,4 @@
-name: Demo push with tags
+name: Push, pull and automations
 on:
   workflow_dispatch:
 
