@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@minor_tweaks_and_fixes
+        uses: lokalise/lokalise-push-action@main
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
