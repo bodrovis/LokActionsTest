@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@main
+        uses: lokalise/lokalise-push-action@multiple_file_ext
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -23,17 +23,19 @@ jobs:
             locales
             i18n
           file_format: test
-          file_ext: test
+          file_ext: |
+            json
+            yaml
           additional_params: >
             {
               "convert_placeholders": true,
               "hidden_from_contributors": true
             }
-          # flat_naming: true
+          flat_naming: true
           rambo_mode: false
           skip_tagging: false
           # use_tag_tracking: true
-          name_pattern: "en/**/custom_*.json"
+          # name_pattern: "en/**/custom_*.json"
           # upload_timeout: 1
           # name_pattern: "custom_file.json"
 
