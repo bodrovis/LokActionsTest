@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@main
+        uses: lokalise/lokalise-push-action@multiple_file_ext
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -26,8 +26,8 @@ jobs:
           translations_path: |
             locales
             i18n
-          file_format: json
-          file_ext: json
+          file_ext: |
+            json
           additional_params: >
             {
               "convert_placeholders": true
@@ -40,7 +40,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@handle_on_pr_trigger
+        uses: lokalise/lokalise-pull-action@validate_paths
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 8395245768e7e07fd330a5.85523356

@@ -22,7 +22,6 @@ jobs:
           translations_path: |
             locales
             i18n
-          file_format: test
           file_ext: |
             json
             yaml
