@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@multiple_file_ext
+        uses: lokalise/lokalise-push-action@v4.1.0
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@validate_paths
+        uses: lokalise/lokalise-pull-action@v4.2.0
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 8395245768e7e07fd330a5.85523356
