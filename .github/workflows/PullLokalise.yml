@@ -27,7 +27,7 @@ jobs:
           
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@v4.2.0
+        uses: lokalise/lokalise-pull-action@main
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -44,7 +44,7 @@ jobs:
           #   {
           #     "include_tags": ["release-2025-08-19"]
           #   }
-          post_process_command: "python scripts/replace_test.py"
+          # post_process_command: "python scripts/replace_test.py"
           # post_process_strict: true
           # additional_params: >
           #   {
@@ -78,6 +78,21 @@ jobs:
           # # override_branch_name: 'custom_branch'
           # # force_push: true
  
+      - name: Pull from Lokalise 2
+        id: lokalise-pull
+        uses: lokalise/lokalise-pull-action@main
+        with:
+          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: 5868381966b39e5053ff15.63486389
+          translations_path: messages
+          flat_naming: true
+          file_format: json
+          file_ext: json
+          # pr_draft: true
+          # pr_assignees: bodrovis
+          # async_mode: true
+          skip_include_tags: true
+
       - name: Debug Created Branch
         run: |
           echo "Branch used:   ${{ steps.lokalise-pull.outputs.created_branch }}"
