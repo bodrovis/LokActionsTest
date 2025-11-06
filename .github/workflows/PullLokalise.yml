@@ -35,51 +35,10 @@ jobs:
           flat_naming: true
           file_format: json
           file_ext: json
-          # pr_draft: true
-          # pr_assignees: bodrovis
-          # async_mode: true
           skip_include_tags: true
-          # additional_params: ""
-          # additional_params: >
-          #   {
-          #     "include_tags": ["release-2025-08-19"]
-          #   }
-          # post_process_command: "python scripts/replace_test.py"
-          # post_process_strict: true
-          # additional_params: >
-          #   {
-          #     "indentation": "2sp",
-          #     "export_empty_as": "skip",
-          #     "export_sort": "a_z",
-          #     "replace_breaks": false,
-          #     "language_mapping": [
-          #       {"original_language_iso": "fr", "custom_language_iso": "fr-FR"}
-          #     ]
-          #   }
-
-
-          # base_lang: en
-          # file_format: json
-          # # file_ext: json
-          # # additional_params: |
-          # #   --directory-prefix=%LANG_ISO%
-          # #   --indentation=4sp
-          # #   --json-unescaped-slashes=true
-          # #   --export-empty-as=skip
-          # #   --export-sort=a_z
-          # #   --replace-breaks=false
-          # #   --language-mapping=[{"original_language_iso":"en_US","custom_language_iso":"en-US"}]
-          # always_pull_base: true
-          # flat_naming: true
-          # skip_include_tags: true
-          # pr_labels: 'automerge,sample'
-          # # skip_original_filenames: true
-          # # async_mode: true
-          # # override_branch_name: 'custom_branch'
-          # # force_push: true
  
-      - name: Pull from Lokalise 2
-        id: lokalise-pull
+      - name: Pull from Lokalise again
+        id: lokalise-pull2
         uses: lokalise/lokalise-pull-action@main
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
