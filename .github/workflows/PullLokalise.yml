@@ -32,29 +32,29 @@ jobs:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
           translations_path: messages
-          override_branch_name: lokalise-sync
+          # override_branch_name: lokalise-sync
           flat_naming: true
           file_format: json
           file_ext: json
           skip_include_tags: true
-          force_push: true
+          # force_push: true
  
-      - name: Pull from Lokalise again
-        id: lokalise-pull2
-        uses: lokalise/lokalise-pull-action@main
-        with:
-          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          project_id: 5868381966b39e5053ff15.63486389
-          translations_path: messages
-          override_branch_name: lokalise-sync
-          flat_naming: true
-          file_format: yaml
-          file_ext: yaml
-          # pr_draft: true
-          # pr_assignees: bodrovis
-          # async_mode: true
-          skip_include_tags: true
-          force_push: true
+      # - name: Pull from Lokalise again
+      #   id: lokalise-pull2
+      #   uses: lokalise/lokalise-pull-action@main
+      #   with:
+      #     api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+      #     project_id: 5868381966b39e5053ff15.63486389
+      #     translations_path: messages
+      #     # override_branch_name: lokalise-sync
+      #     flat_naming: true
+      #     file_format: yaml
+      #     file_ext: yaml
+      #     # pr_draft: true
+      #     # pr_assignees: bodrovis
+      #     # async_mode: true
+      #     skip_include_tags: true
+      #     # force_push: true
 
       - name: Debug Created Branch
         run: |
