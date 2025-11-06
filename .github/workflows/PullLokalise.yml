@@ -47,8 +47,8 @@ jobs:
           translations_path: messages
           override_branch_name: lokalise-sync
           flat_naming: true
-          file_format: json
-          file_ext: json
+          file_format: yaml
+          file_ext: yaml
           # pr_draft: true
           # pr_assignees: bodrovis
           # async_mode: true
