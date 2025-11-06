@@ -37,7 +37,7 @@ jobs:
           file_format: json
           file_ext: json
           skip_include_tags: true
-          # force_push: true
+          force_push: true
  
       - name: Pull from Lokalise again
         id: lokalise-pull2
@@ -54,7 +54,7 @@ jobs:
           # pr_assignees: bodrovis
           # async_mode: true
           skip_include_tags: true
-          # force_push: true
+          force_push: true
 
       - name: Debug Created Branch
         run: |
