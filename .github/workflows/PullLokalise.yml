@@ -41,19 +41,22 @@ jobs:
       - name: Unlock GPG key
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
         run: |
           export GPG_TTY=$(tty)
 
           echo "test" | gpg --batch --yes --pinentry-mode loopback \
             --passphrase "$GPG_PASSPHRASE" \
-            -u DF2149C5EF09AFB95367CE51B681AD30FBA9C607 -s > /dev/null
+            -u "$GPG_KEY_ID" -s > /dev/null
 
       - name: Configure Git for signing
+        env:
+          GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
         run: |
-          git config --global user.name  "my-bot-user"
-          git config --global user.email "my-bot-user@users.noreply.github.com"
+          git config --global user.name  "bodrovis"
+          git config --global user.email "golosizpru@gmail.com"
 
-          git config --global user.signingkey "DF2149C5EF09AFB95367CE51B681AD30FBA9C607"
+          git config --global user.signingkey "$GPG_KEY_ID"
 
           git config --global commit.gpgsign true
           git config --global gpg.program gpg
