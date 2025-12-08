@@ -74,8 +74,8 @@ jobs:
           file_ext: json
           skip_include_tags: true
           git_sign_commits: true
-          git_user_name: "my-bot-user"
-          git_user_email: "my-bot-user@users.noreply.github.com"
+          git_user_name: "bodrovis"
+          git_user_email: "golosizpru@gmail.com"
           # force_push: true
  
       # - name: Pull from Lokalise again
