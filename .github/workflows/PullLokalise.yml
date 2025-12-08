@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -24,10 +24,43 @@ jobs:
       #   run: |
       #     which python
       #     python --version
-          
+
+      - name: Import GPG key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          echo "pinentry-mode loopback"   >> ~/.gnupg/gpg.conf
+          gpgconf --kill gpg-agent || true
+
+      - name: Unlock GPG key
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          export GPG_TTY=$(tty)
+
+          echo "test" | gpg --batch --yes --pinentry-mode loopback \
+            --passphrase "$GPG_PASSPHRASE" \
+            -u DF2149C5EF09AFB95367CE51B681AD30FBA9C607 -s > /dev/null
+
+      - name: Configure Git for signing
+        run: |
+          git config --global user.name  "my-bot-user"
+          git config --global user.email "my-bot-user@users.noreply.github.com"
+
+          git config --global user.signingkey "DF2149C5EF09AFB95367CE51B681AD30FBA9C607"
+
+          git config --global commit.gpgsign true
+          git config --global gpg.program gpg
+
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@main
+        uses: lokalise/lokalise-pull-action@add_signed_commits
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -37,6 +70,9 @@ jobs:
           file_format: json
           file_ext: json
           skip_include_tags: true
+          git_sign_commits: true
+          git_user_name: "my-bot-user"
+          git_user_email: "my-bot-user@users.noreply.github.com"
           # force_push: true
  
       # - name: Pull from Lokalise again
