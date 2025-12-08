@@ -76,6 +76,7 @@ jobs:
           git_sign_commits: true
           git_user_name: "bodrovis"
           git_user_email: "golosizpru@gmail.com"
+          custom_github_token: ${{ secrets.PAT_TOKEN }}
           # force_push: true
  
       # - name: Pull from Lokalise again
