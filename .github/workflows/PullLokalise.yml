@@ -63,7 +63,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@add_signed_commits
+        uses: lokalise/lokalise-pull-action@main
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: wrong # 5868381966b39e5053ff15.63486389
