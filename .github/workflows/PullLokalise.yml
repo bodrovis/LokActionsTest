@@ -25,48 +25,48 @@ jobs:
       #     which python
       #     python --version
 
-      - name: Import GPG key
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.gnupg
-          chmod 700 ~/.gnupg
+      # - name: Import GPG key
+      #   env:
+      #     GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      #   run: |
+      #     mkdir -p ~/.gnupg
+      #     chmod 700 ~/.gnupg
 
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+      #     echo "$GPG_PRIVATE_KEY" | gpg --batch --import
 
-          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
-          echo "pinentry-mode loopback"   >> ~/.gnupg/gpg.conf
-          gpgconf --kill gpg-agent || true
+      #     echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+      #     echo "pinentry-mode loopback"   >> ~/.gnupg/gpg.conf
+      #     gpgconf --kill gpg-agent || true
 
-      - name: Unlock GPG key
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
-        run: |
-          export GPG_TTY=$(tty)
+      # - name: Unlock GPG key
+      #   env:
+      #     GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      #     GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
+      #   run: |
+      #     export GPG_TTY=$(tty)
 
-          echo "test" | gpg --batch --yes --pinentry-mode loopback \
-            --passphrase "$GPG_PASSPHRASE" \
-            -u "$GPG_KEY_ID" -s > /dev/null
+      #     echo "test" | gpg --batch --yes --pinentry-mode loopback \
+      #       --passphrase "$GPG_PASSPHRASE" \
+      #       -u "$GPG_KEY_ID" -s > /dev/null
 
-      - name: Configure Git for signing
-        env:
-          GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
-        run: |
-          git config --global user.name  "bodrovis"
-          git config --global user.email "golosizpru@gmail.com"
+      # - name: Configure Git for signing
+      #   env:
+      #     GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
+      #   run: |
+      #     git config --global user.name  "bodrovis"
+      #     git config --global user.email "golosizpru@gmail.com"
 
-          git config --global user.signingkey "$GPG_KEY_ID"
+      #     git config --global user.signingkey "$GPG_KEY_ID"
 
-          git config --global commit.gpgsign true
-          git config --global gpg.program gpg
+      #     git config --global commit.gpgsign true
+      #     git config --global gpg.program gpg
 
       - name: Pull from Lokalise
         id: lokalise-pull
         uses: lokalise/lokalise-pull-action@main
         with:
-          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          project_id: wrong # 5868381966b39e5053ff15.63486389
+          api_token: fake # ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: 5868381966b39e5053ff15.63486389
           translations_path: messages
           # override_branch_name: lokalise-sync
           flat_naming: true
