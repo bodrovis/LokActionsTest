@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@v4.2.0
+        uses: lokalise/lokalise-push-action@main
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
               "hidden_from_contributors": true
             }
           flat_naming: true
-          rambo_mode: false
+          rambo_mode: true
           skip_tagging: false
           # use_tag_tracking: true
           # name_pattern: "en/**/custom_*.json"

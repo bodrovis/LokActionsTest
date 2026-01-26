@@ -20,34 +20,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Lokalise CLI v2
-        uses: lokalise/install-lokalise-cli-v2@master
+      - name: Pull from Lokalise
+        id: lokalise-pull
+        uses: lokalise/lokalise-pull-action@main
         with:
-          force-install: true         
-          target-version: 3.1.3 
-
-      - name: Check CLI
-        run: |
-          lokalise2 --version
-
-      # - name: Check Python
-      #   run: |
-      #     which python
-      #     python --version
-          
-      # - name: Pull from Lokalise
-      #   id: lokalise-pull
-      #   uses: lokalise/lokalise-pull-action@main
-      #   with:
-      #     api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-      #     project_id: 5868381966b39e5053ff15.63486389
-      #     translations_path: messages
-      #     # override_branch_name: lokalise-sync
-      #     flat_naming: true
-      #     file_format: json
-      #     file_ext: json
-      #     skip_include_tags: true
-      #     # force_push: true
+          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: 5868381966b39e5053ff15.63486389
+          translations_path: |
+            messages
+            locales
+          # override_branch_name: lokalise-sync
+          flat_naming: true
+          file_format: json
+          file_ext: json
+          skip_include_tags: true
+          # force_push: true
  
       # - name: Pull from Lokalise again
       #   id: lokalise-pull2
