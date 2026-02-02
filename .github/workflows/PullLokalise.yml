@@ -37,8 +37,6 @@ jobs:
           additional_params: |
             export_empty_as: base
             indentation: 4sp
-            export_empty_as: skip
-            export_sort: a_z
             replace_breaks: false
  
       # - name: Pull from Lokalise again
