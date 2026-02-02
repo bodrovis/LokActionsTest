@@ -22,7 +22,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@main
+        uses: lokalise/lokalise-pull-action@allow_yaml_additional_params
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 5868381966b39e5053ff15.63486389
@@ -34,7 +34,11 @@ jobs:
           file_format: json
           file_ext: json
           skip_include_tags: true
-          # force_push: true
+          additional_params: |
+            indentation: 2sp
+            export_empty_as: skip
+            export_sort: a_z
+            replace_breaks: false
  
       # - name: Pull from Lokalise again
       #   id: lokalise-pull2
