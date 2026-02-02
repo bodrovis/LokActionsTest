@@ -25,11 +25,9 @@ jobs:
           file_ext: |
             json
             yaml
-          additional_params: >
-            {
-              "convert_placeholders": true,
-              "hidden_from_contributors": true
-            }
+          additional_params: |
+            convert_placeholders: true
+            hidden_from_contributors: true
           flat_naming: true
           rambo_mode: true
           skip_tagging: false
