@@ -35,7 +35,8 @@ jobs:
           file_ext: json
           skip_include_tags: true
           additional_params: |
-            indentation: 2sp
+            export_empty_as: base
+            indentation: 4sp
             export_empty_as: skip
             export_sort: a_z
             replace_breaks: false
