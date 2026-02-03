@@ -31,8 +31,8 @@ jobs:
             locales
           # override_branch_name: lokalise-sync
           flat_naming: true
-          file_format: json
-          file_ext: json
+          file_format: stf
+          # file_ext: json
           skip_include_tags: true
           additional_params: |
             export_empty_as: base
