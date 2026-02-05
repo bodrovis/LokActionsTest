@@ -31,7 +31,7 @@ jobs:
             locales
           override_branch_name: lokalise-sync
           flat_naming: true
-          file_format: stf
+          file_format: json
           force_push: true
           # file_ext: json
           skip_include_tags: true
