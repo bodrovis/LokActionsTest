@@ -29,9 +29,10 @@ jobs:
           translations_path: |
             messages
             locales
-          # override_branch_name: lokalise-sync
+          override_branch_name: lokalise-sync
           flat_naming: true
           file_format: stf
+          force_push: true
           # file_ext: json
           skip_include_tags: true
           additional_params: |
