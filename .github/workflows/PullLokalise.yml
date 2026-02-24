@@ -35,6 +35,7 @@ jobs:
           force_push: true
           # file_ext: json
           skip_include_tags: true
+          os_platform: "  linux_amd64   "
           additional_params: |
             export_empty_as: base
             indentation: 4sp
