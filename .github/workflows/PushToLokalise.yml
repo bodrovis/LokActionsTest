@@ -13,11 +13,11 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@v4.2.0
+        uses: lokalise/lokalise-push-action@main
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          project_id: 5868381966b39e5053ff15.63486389
+          project_id: 7565202469c53c30428ce0.33693563
           base_lang: en
           translations_path: |
             locales
@@ -25,13 +25,11 @@ jobs:
           file_ext: |
             json
             yaml
-          additional_params: >
-            {
-              "convert_placeholders": true,
-              "hidden_from_contributors": true
-            }
+          additional_params: |
+            convert_placeholders: true
+            hidden_from_contributors: true
           flat_naming: true
-          rambo_mode: false
+          rambo_mode: true
           skip_tagging: false
           # use_tag_tracking: true
           # name_pattern: "en/**/custom_*.json"

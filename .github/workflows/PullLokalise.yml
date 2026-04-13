@@ -20,64 +20,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Check Python
-      #   run: |
-      #     which python
-      #     python --version
-
-      # - name: Import GPG key
-      #   env:
-      #     GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-      #   run: |
-      #     mkdir -p ~/.gnupg
-      #     chmod 700 ~/.gnupg
-
-      #     echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-
-      #     echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
-      #     echo "pinentry-mode loopback"   >> ~/.gnupg/gpg.conf
-      #     gpgconf --kill gpg-agent || true
-
-      # - name: Unlock GPG key
-      #   env:
-      #     GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      #     GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
-      #   run: |
-      #     export GPG_TTY=$(tty)
-
-      #     echo "test" | gpg --batch --yes --pinentry-mode loopback \
-      #       --passphrase "$GPG_PASSPHRASE" \
-      #       -u "$GPG_KEY_ID" -s > /dev/null
-
-      # - name: Configure Git for signing
-      #   env:
-      #     GPG_KEY_ID: "C717C73992E1F4FE1F93B6D02F7DE4F2F3EE04BD"
-      #   run: |
-      #     git config --global user.name  "bodrovis"
-      #     git config --global user.email "golosizpru@gmail.com"
-
-      #     git config --global user.signingkey "$GPG_KEY_ID"
-
-      #     git config --global commit.gpgsign true
-      #     git config --global gpg.program gpg
-
       - name: Pull from Lokalise
         id: lokalise-pull
         uses: lokalise/lokalise-pull-action@update/refactor_and_relax_paths_handling
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
-          project_id: 5868381966b39e5053ff15.63486389
-          translations_path: messages
-          # override_branch_name: lokalise-sync
+          project_id: 7565202469c53c30428ce0.33693563
+          translations_path: |
+            messages
+            locales
+          override_branch_name: lokalise-sync
           flat_naming: true
-          file_format: strings
+          file_format: json
+          force_push: true
           # file_ext: json
-          # skip_include_tags: true
-          # git_sign_commits: true
-          # git_user_name: "bodrovis"
-          # git_user_email: "golosizpru@gmail.com"
-          # custom_github_token: "fake"
-          # force_push: true
+          skip_include_tags: true
+          os_platform: "  linux_amd64   "
+          additional_params: |
+            export_empty_as: base
+            indentation: 4sp
+            replace_breaks: false
  
       # - name: Pull from Lokalise again
       #   id: lokalise-pull2
@@ -96,16 +58,16 @@ jobs:
       #     skip_include_tags: true
       #     # force_push: true
 
-      - name: Debug Created Branch
-        run: |
-          echo "Branch used:   ${{ steps.lokalise-pull.outputs.created_branch }}"
-          echo "PR exists:     ${{ steps.lokalise-pull.outputs.pr_exists }}"
-          echo "PR created:    ${{ steps.lokalise-pull.outputs.pr_created }}"
-          echo "PR updated:    ${{ steps.lokalise-pull.outputs.pr_updated }}"
-          echo "PR action:     ${{ steps.lokalise-pull.outputs.pr_action }}"
-          echo "PR number:     ${{ steps.lokalise-pull.outputs.pr_number }}"
-          echo "PR id:         ${{ steps.lokalise-pull.outputs.pr_id }}"
-          echo "PR url:        ${{ steps.lokalise-pull.outputs.pr_url }}"
+      # - name: Debug Created Branch
+      #   run: |
+      #     echo "Branch used:   ${{ steps.lokalise-pull.outputs.created_branch }}"
+      #     echo "PR exists:     ${{ steps.lokalise-pull.outputs.pr_exists }}"
+      #     echo "PR created:    ${{ steps.lokalise-pull.outputs.pr_created }}"
+      #     echo "PR updated:    ${{ steps.lokalise-pull.outputs.pr_updated }}"
+      #     echo "PR action:     ${{ steps.lokalise-pull.outputs.pr_action }}"
+      #     echo "PR number:     ${{ steps.lokalise-pull.outputs.pr_number }}"
+      #     echo "PR id:         ${{ steps.lokalise-pull.outputs.pr_id }}"
+      #     echo "PR url:        ${{ steps.lokalise-pull.outputs.pr_url }}"
       
       # - name: Trigger Automerge Workflow
       #   if: steps.lokalise-pull.outputs.created_branch != '' && steps.lokalise-pull.outputs.pr_created == 'true'
