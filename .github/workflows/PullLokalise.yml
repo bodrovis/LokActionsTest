@@ -22,7 +22,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@update/refactor_and_relax_paths_handling
+        uses: lokalise/lokalise-pull-action@main
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 7565202469c53c30428ce0.33693563
