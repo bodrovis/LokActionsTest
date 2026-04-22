@@ -22,7 +22,7 @@ jobs:
 
       - name: Pull from Lokalise
         id: lokalise-pull
-        uses: lokalise/lokalise-pull-action@main
+        uses: lokalise/lokalise-pull-action@v5.2.1
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 7565202469c53c30428ce0.33693563
