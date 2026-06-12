@@ -44,7 +44,7 @@ jobs:
           additional_params: >
             {
               "original_filenames": false,
-              "bundle_structure": "resources/strings/%LANG_ISO%.lproj/Localizable.%FORMAT%",
+              "bundle_structure": "resources/strings/%LANG_ISO%.lproj",
               "all_platforms": true,
               "language_mapping": [
                 {"original_language_iso":"en_US","custom_language_iso":"en"},
