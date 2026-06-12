@@ -33,7 +33,7 @@ jobs:
             resources/strings/en.lproj
             resources/strings/es.lproj
           # override_branch_name: lokalise-sync
-          # flat_naming: true
+          flat_naming: true
           file_format: strings
           # force_push: true
           # file_ext: json
