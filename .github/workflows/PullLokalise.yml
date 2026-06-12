@@ -26,21 +26,31 @@ jobs:
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 7565202469c53c30428ce0.33693563
+          # translations_path: |
+          #   messages
+          #   locales
           translations_path: |
-            messages
-            locales
-          override_branch_name: lokalise-sync
+            resources/strings/en.lproj
+            resources/strings/es.lproj
+          # override_branch_name: lokalise-sync
           flat_naming: true
-          file_format: json
-          force_push: true
+          file_format: strings
+          # force_push: true
           # file_ext: json
           skip_include_tags: true
-          os_platform: "  linux_amd64   "
-          additional_params: |
-            export_empty_as: base
-            indentation: 4sp
-            replace_breaks: false
- 
+          skip_original_filenames: true
+          always_pull_base: true
+          # os_platform: "  linux_amd64   "
+          additional_params: >
+            {
+              "bundle_structure": "resources/strings/%LANG_ISO%.lproj/Localizable.%FORMAT%",
+              "all_platforms": true,
+              "language_mapping": [
+                {"original_language_iso":"en_US","custom_language_iso":"en"},
+                {"original_language_iso":"en_GB","custom_language_iso":"en-GB"}
+              ]
+            }
+
       # - name: Pull from Lokalise again
       #   id: lokalise-pull2
       #   uses: lokalise/lokalise-pull-action@main
