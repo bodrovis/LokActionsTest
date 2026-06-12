@@ -43,7 +43,6 @@ jobs:
           # os_platform: "  linux_amd64   "
           additional_params: >
             {
-              "original_filenames": false,
               "bundle_structure": "resources/strings/%LANG_ISO%.lproj/Localizable.%FORMAT%",
               "all_platforms": true,
               "language_mapping": [
