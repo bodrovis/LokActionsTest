@@ -33,8 +33,8 @@ jobs:
           file_format: json
           file_ext: json
           skip_include_tags: true
-          always_pull_base: true
-          override_branch_name: lokalise-draft-test
+          always_pull_base: false
+          # override_branch_name: lokalise-draft-test
           pr_title: Lokalise draft conversion test
           pr_body: Testing existing PR update.
           pr_draft: "true"
