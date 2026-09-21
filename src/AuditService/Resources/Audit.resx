@@ -1,3 +1,6 @@
-<data name="AuditTitle">
-  <value>Audit base EN</value>
-</data>
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AuditTitle" xml:space="preserve">
+    <value>Audit base EN</value>
+  </data>
+</root>

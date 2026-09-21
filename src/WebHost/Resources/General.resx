@@ -1,3 +1,6 @@
-<data name="GeneralTitle">
-  <value>General base EN</value>
-</data>
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="GeneralTitle" xml:space="preserve">
+    <value>General base EN</value>
+  </data>
+</root>

@@ -1,3 +1,6 @@
-<data name="AccountTitle">
-  <value>Account Errors SHOULD NOT UPLOAD</value>
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<data name="AccountError">
+  <value>Account AccountError EN</value>
 </data>
+</root>
