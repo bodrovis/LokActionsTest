@@ -13,28 +13,39 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Lokalise
-        uses: lokalise/lokalise-push-action@main
+        uses: lokalise/lokalise-push-action@add_exclude_patterns
         id: lokalise-push
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
           project_id: 7565202469c53c30428ce0.33693563
-          base_lang: en
           translations_path: |
-            locales
-            i18n
-          file_ext: |
-            json
-            yaml
-          additional_params: |
-            convert_placeholders: true
-            hidden_from_contributors: true
-          flat_naming: true
-          rambo_mode: false
-          skip_tagging: false
-          # use_tag_tracking: true
-          # name_pattern: "en/**/custom_*.json"
-          # upload_timeout: 1
-          # name_pattern: "custom_file.json"
+            src/AuditService/Resources
+            src/WebHost/Resources
+
+          file_ext: resx
+          name_pattern: "*.resx"
+
+          exclude_patterns: |
+            *.de-DE.resx
+            *.fr-FR.resx
+            
+          # base_lang: en
+          # translations_path: |
+          #   locales
+          #   i18n
+          # file_ext: |
+          #   json
+          #   yaml
+          # additional_params: |
+          #   convert_placeholders: true
+          #   hidden_from_contributors: true
+          # flat_naming: true
+          # rambo_mode: false
+          # skip_tagging: false
+          # # use_tag_tracking: true
+          # # name_pattern: "en/**/custom_*.json"
+          # # upload_timeout: 1
+          # # name_pattern: "custom_file.json"
 
       - name: Debug Outputs
         run: |
